@@ -1,0 +1,263 @@
+/* Corpo e contenitore */
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: #24201c;
+    color: #eae5dc;
+    overflow-x: hidden;
+    background-image: url(https://www.transparenttextures.com/patterns/wood.png);
+    background-blend-mode: multiply;
+    transition: background-color 2s ease-in-out;
+}
+
+/* Contenitore principale */
+.layer-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Contenuto centrale */
+.content {
+    text-align: center;
+    z-index: 4;
+    opacity: 1;
+    animation: fadeIn 1.5s ease-in;
+}
+
+.content h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    color: #d1c7ba;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-style: italic;
+}
+
+.explore {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #d1c7ba;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 10px 20px;
+    border: 1px solid #d1c7ba;
+    border-radius: 4px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+    font-weight: bold;
+}
+
+.explore:hover {
+    background: #d1c7ba;
+    color: #1e1b18;
+    transform: scale(1.1);
+}
+
+/* Animazioni di immersione */
+.fade-out {
+    animation: fadeOut 2s forwards, zoomIn 2s forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Galleria */
+.gallery {
+    display: none;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px;
+    background: linear-gradient(135deg, #1e1b18, #2d261e);
+    opacity: 0;
+    animation: slideIn 1.5s ease forwards;
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item {
+    position: relative;
+    text-align: center;
+}
+
+.gallery-item h2 {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #d1c7ba;
+    font-size: 1.2rem;
+    margin: 0;
+    background-color: rgba(30, 27, 24, 0.9);
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-transform: capitalize;
+    font-style: italic;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    filter: grayscale(40%);
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+/* Cornice decorativa solo sul container iniziale */
+.frame-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://i.pinimg.com/originals/c2/00/ee/c200ee88860774b5f15155ffa31825a7.png');
+    background-size: cover;
+    background-position: center;
+    pointer-events: none;
+    z-index: 3;
+}
+
+/* Aggiungi alle immagini come Easter Egg */
+.easter-egg {
+    position: fixed; /* Usa "fixed" per fissarle alla pagina */
+    width: 30px; /* Piccole dimensioni */
+    height: auto;
+    display: none; /* Nascoste di default */
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Visibili e animate quando sono scoperte */
+.easter-egg.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1.5) rotate(45deg); /* Anima l'immagine, la ingrandisce e la ruota */
+}
+
+/* Posizionamento in basso a destra */
+.easter-egg.one {
+    bottom: 10px;  /* Distanza dal fondo */
+    right: 10px;   /* Distanza dal lato destro */
+}
+
+.easter-egg.two {
+    bottom: 50px;  /* Distanza dal fondo (un po' più in alto rispetto alla prima) */
+    right: 10px;   /* Distanza dal lato destro */
+}
+
+/* MEDIA QUERY PER SCHERMI PIÙ PICCOLI */
+
+/* Per tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .content h1 {
+        font-size: 2.5rem;  /* Ridurre la dimensione del titolo */
+    }
+
+    .explore {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);  /* Mostrare 2 colonne per dispositivi più piccoli */
+        padding: 20px;
+    }
+
+    .gallery-item h2 {
+        font-size: 1rem;  /* Ridurre la dimensione del titolo delle immagini */
+    }
+
+    .gallery img {
+        width: 100%; /* Assicurarsi che le immagini si adattino alla larghezza disponibile */
+    }
+}
+
+/* Per schermi piccoli (max-width: 767px) */
+@media (max-width: 767px) {
+    body {
+        font-size: 14px; /* Font più piccolo per dispositivi mobili */
+    }
+
+    .content h1 {
+        font-size: 2rem;  /* Ulteriore riduzione della dimensione del titolo */
+    }
+
+    .explore {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;  /* Mostrare una sola colonna per schermi molto piccoli */
+        padding: 10px;
+    }
+
+    .gallery-item h2 {
+        font-size: 1rem;
+    }
+
+/* Aggiungi alle immagini come Easter Egg */
+.easter-egg {
+    position: fixed; /* Usa "fixed" per fissarle alla pagina */
+    width: 30px; /* Piccole dimensioni */
+    height: auto;
+    display: none; /* Nascoste di default */
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Visibili e animate quando sono scoperte */
+.easter-egg.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1.5) rotate(45deg); /* Anima l'immagine, la ingrandisce e la ruota */
+}
+
+/* Posizionamento in basso a destra */
+.easter-egg.one {
+    bottom: 10px;  /* Distanza dal fondo */
+    right: 10px;   /* Distanza dal lato destro */
+}
+
+.easter-egg.two {
+    bottom: 50px;  /* Distanza dal fondo (un po' più in alto rispetto alla prima) */
+    right: 10px;   /* Distanza dal lato destro */
+}
+
+}

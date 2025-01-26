@@ -3,115 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dark Academia</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Georgia', serif;
-            background-color: #1c1c1c;
-            color: #d4d4d4;
-            overflow-x: hidden;
-        }
-
-        .layer-container {
-            position: relative;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: transform 1s ease, opacity 1s ease;
-        }
-
-        .layer-1 {
-            background-image: url('../assets/c81e5fbd9e57473e3ad4fd49c8ce00c9.jpg');
-            z-index: 3;
-        }
-
-        .layer-2 {
-            background-image: url('../assets/98c8de6644dc4f8caa62f652d46d831a.jpg');
-            z-index: 2;
-            transform: translateY(100%);
-        }
-
-        .layer-3 {
-            background-image: url('../assets/image-removebg-preview.png');
-            z-index: 1;
-            transform: translateY(200%);
-        }
-
-        .content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 4;
-            text-align: center;
-        }
-
-        .content h1 {
-            font-size: 3rem;
-            margin: 0;
-            color: #f5e8c7;
-        }
-
-        .content p {
-            font-size: 1.2rem;
-            color: #b8b0a1;
-        }
-
-        .explore {
-            margin-top: 20px;
-            font-size: 1.2rem;
-            color: #f5e8c7;
-            cursor: pointer;
-            border: none;
-            background: none;
-            padding: 10px 20px;
-            border: 1px solid #f5e8c7;
-            border-radius: 4px;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        .explore:hover {
-            background: #f5e8c7;
-            color: #1c1c1c;
-        }
-    </style>
+    <title>Irene e Andrea</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="layer-container">
-        <div class="layer layer-1"></div>
-        <div class="layer layer-2"></div>
-        <div class="layer layer-3"></div>
-
+        <div class="frame-overlay"></div>
         <div class="content">
-            <h1>Dark Academia</h1>
-            <p>Immerse yourself in a world of mystery and knowledge.</p>
-            <button class="explore" onclick="exploreLayers()">Explore</button>
+            <h1>Irene e Andrea</h1>
+            <button class="explore" onclick="exploreLayers()">Immergiti</button>
         </div>
     </div>
 
-    <script>
-        let currentLayer = 0;
-
-        function exploreLayers() {
-            const layers = document.querySelectorAll('.layer');
-            if (currentLayer < layers.length - 1) {
-                layers[currentLayer].style.transform = 'translateY(-100%)';
-                layers[currentLayer].style.opacity = '0';
-                currentLayer++;
-                layers[currentLayer].style.transform = 'translateY(0)';
-                layers[currentLayer].style.opacity = '1';
-            }
-        }
-    </script>
+    <script src="./js/script.js"></script>
 </body>
 </html>
