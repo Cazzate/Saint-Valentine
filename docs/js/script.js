@@ -1,4 +1,18 @@
+
+const audio = document.createElement('audio');
+const source = document.createElement('source');
+source.src = '../assets/music.mp3';
+source.type = 'audio/mp3';
+audio.appendChild(source);
+let music = 1;
+
 function exploreLayers() {
+    const egg3 = document.createElement('p');
+    egg3.innerHTML = "👍 Si, Tranquilla";
+    egg3.alt = 'Easter Egg 3';
+    egg3.className = 'three';
+
+    document.body.appendChild(egg3);
     // Ottieni il container principale
     const layerContainer = document.querySelector('.layer-container');
     const content = document.querySelector('.content');
@@ -6,7 +20,7 @@ function exploreLayers() {
     gallery.className = 'gallery';
 
     // Lista di immagini e nomi dei mesi
-    // https://drive.google.com/file/d//view?usp=sharing
+
     const months = [
         { name: 'Gennaio', image: 'http://drive.google.com/thumbnail?id=11QwWexegHgV3q_DH4edSKYTd64xpGiqP&sz=s800' },
         { name: 'Febbraio', image: 'http://drive.google.com/thumbnail?id=1ure3QqmO_zY5E2UoASudSwTtJf7PWu-0&sz=s800' },
@@ -50,6 +64,34 @@ function exploreLayers() {
         layerContainer.style.display = 'none';
         gallery.style.display = 'grid';
     }, 2000); // 2 secondi per sincronizzarsi con l'animazione
+    document.body.appendChild(audio);
+    audio.play();
+
+    // Creazione del pulsante per cambiare canzone
+    const changeSongButton = document.createElement('button');
+    changeSongButton.textContent = '????';
+    changeSongButton.className = 'explore';
+
+    // Aggiungi il pulsante al body
+    document.body.appendChild(changeSongButton);
+
+    // Aggiungi evento per il pulsante
+    changeSongButton.addEventListener('click', () => {
+        let newAudioSource;
+        // Cambia la sorgente audio quando il pulsante è premuto
+        if (music === 1){
+            music = 2;
+            newAudioSource = '../assets/music2.mp3';
+        }
+        else{
+            music = 1;
+            newAudioSource = '../assets/music.mp3';
+        }
+        source.src = newAudioSource;
+        audio.load(); // Ricarica il nuovo file audio
+        audio.play(); // Avvia la nuova canzone
+    });
+    
 }
 function addEasterEggs() {
     // Crea gli elementi delle immagini easter egg
@@ -57,12 +99,6 @@ function addEasterEggs() {
     egg1.src = 'https://i.ibb.co/PDgnt0S/GPF039-01-29631.png';
     egg1.alt = 'Easter Egg 1';
     egg1.className = 'easter-egg one'; // Classe per la prima immagine
-    
-    const egg3 = document.createElement('p');
-    egg3.innerHTML = "👍 Si, Tranquilla";
-    egg3.alt = 'Easter Egg 3';
-    egg3.className = 'three';
-
     const egg2 = document.createElement('img');
     egg2.src = 'https://i.ibb.co/bFdr8pF/GPF085-01-35929.png';
     egg2.alt = 'Easter Egg 2';
@@ -71,15 +107,14 @@ function addEasterEggs() {
     // Aggiungi le immagini alla pagina
     document.body.appendChild(egg1);
     document.body.appendChild(egg2);
-    document.body.appendChild(egg3);
 
     // Mostra le immagini come easter egg quando si clicca sulla pagina
     document.body.addEventListener('click', () => {
         egg1.classList.toggle('show'); // Mostra/nascondi la prima immagine
         egg2.classList.toggle('show'); // Mostra/nascondi la seconda immagine
-        egg3.classList.toggle('show'); 
     });
 }
 
 // Chiamare la funzione per aggiungere gli easter eggs al caricamento della pagina
 addEasterEggs();
+
