@@ -1,7 +1,7 @@
 
 const audio = document.createElement('audio');
 const source = document.createElement('source');
-source.src = '../../assets/music.mp3';
+source.src = 'assets/music.mp3';
 source.type = 'audio/mp3';
 audio.appendChild(source);
 let music = 1;
@@ -81,11 +81,11 @@ function exploreLayers() {
         // Cambia la sorgente audio quando il pulsante è premuto
         if (music === 1){
             music = 2;
-            newAudioSource = '../../assets/music2.mp3';
+            newAudioSource = 'assets/music2.mp3';
         }
         else{
             music = 1;
-            newAudioSource = '../../assets/music.mp3';
+            newAudioSource = 'assets/music.mp3';
         }
         source.src = newAudioSource;
         audio.load(); // Ricarica il nuovo file audio
@@ -96,11 +96,11 @@ function exploreLayers() {
 function addEasterEggs() {
     // Crea gli elementi delle immagini easter egg
     const egg1 = document.createElement('img');
-    egg1.src = 'https://i.ibb.co/PDgnt0S/GPF039-01-29631.png';
+    egg1.src = 'http://drive.google.com/thumbnail?id=1tGiuYbiInAO-ffol6xl4fl1Czied43t6&sz=s800';
     egg1.alt = 'Easter Egg 1';
     egg1.className = 'easter-egg one'; // Classe per la prima immagine
     const egg2 = document.createElement('img');
-    egg2.src = 'https://i.ibb.co/bFdr8pF/GPF085-01-35929.png';
+    egg2.src = 'http://drive.google.com/thumbnail?id=1qZfirK67NUPm6L0CopR_uQ1Gf-8Ir4O_&sz=s800';
     egg2.alt = 'Easter Egg 2';
     egg2.className = 'easter-egg two'; // Classe per la seconda immagine
 
