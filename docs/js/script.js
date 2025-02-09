@@ -1,7 +1,7 @@
 
 const audio = document.createElement('audio');
 const source = document.createElement('source');
-source.src = '../assets/music.mp3';
+source.src = '../../assets/music.mp3';
 source.type = 'audio/mp3';
 audio.appendChild(source);
 let music = 1;
@@ -81,11 +81,11 @@ function exploreLayers() {
         // Cambia la sorgente audio quando il pulsante è premuto
         if (music === 1){
             music = 2;
-            newAudioSource = '../assets/music2.mp3';
+            newAudioSource = '../../assets/music2.mp3';
         }
         else{
             music = 1;
-            newAudioSource = '../assets/music.mp3';
+            newAudioSource = '../../assets/music.mp3';
         }
         source.src = newAudioSource;
         audio.load(); // Ricarica il nuovo file audio
