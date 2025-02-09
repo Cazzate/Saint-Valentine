@@ -6,19 +6,20 @@ function exploreLayers() {
     gallery.className = 'gallery';
 
     // Lista di immagini e nomi dei mesi
+    // https://drive.google.com/file/d//view?usp=sharing
     const months = [
-        { name: 'Gennaio', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Febbraio', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Marzo', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Aprile', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Maggio', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Giugno', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Luglio', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Agosto', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Settembre', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Ottobre', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Novembre', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' },
-        { name: 'Dicembre', image: 'https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png' }
+        { name: 'Gennaio', image: 'http://drive.google.com/thumbnail?id=11QwWexegHgV3q_DH4edSKYTd64xpGiqP&sz=s800' },
+        { name: 'Febbraio', image: 'http://drive.google.com/thumbnail?id=1ure3QqmO_zY5E2UoASudSwTtJf7PWu-0&sz=s800' },
+        { name: 'Marzo', image: 'http://drive.google.com/thumbnail?id=1RQ4PfruY3kBsqd5XBXg_WUBMQjQYXTwM&sz=s800' },
+        { name: 'Aprile', image: 'http://drive.google.com/thumbnail?id=1if4WJGAbN873fZpSsHAwy7ssC8HHrQfL&sz=s800' },
+        { name: 'Maggio', image: 'http://drive.google.com/thumbnail?id=1uZEX_YWNpIv2c4YlWZJCJZS-89i8C2m1&sz=s800' },
+        { name: 'Giugno', image: 'http://drive.google.com/thumbnail?id=1A_wwjUOHYG80QSPHD_jGuWV9JLBKMMlj&sz=s800' },
+        { name: 'Luglio', image: 'http://drive.google.com/thumbnail?id=1lp9DE2biHdlF9ArEcY442XDLLWW3sejo&sz=s800' },
+        { name: 'Agosto', image: 'http://drive.google.com/thumbnail?id=1WFT_Rf_6aDmI9K9ngdx9uSjK43u9m53C&sz=s800' },
+        { name: 'Settembre', image: 'http://drive.google.com/thumbnail?id=1XBt-pcIFez3Ghu8oTweBdDdGCPbsIPch&sz=s800' },
+        { name: 'Ottobre', image: 'http://drive.google.com/thumbnail?id=1QzzIT8h0iKlqd1LIPGdULxYsL51w6uXk&sz=s800' },
+        { name: 'Novembre', image: 'http://drive.google.com/thumbnail?id=1fTUE4YZdoiKanPuLOQtLRWgc3uRt8hoZ&sz=s800' },
+        { name: 'Dicembre', image: 'http://drive.google.com/thumbnail?id=16Ateyze4DGlSRR3snwtxU2A4svzipDyE&sz=s800' }
     ];
 
     // Aggiungi immagini con il nome del mese alla galleria
@@ -56,6 +57,11 @@ function addEasterEggs() {
     egg1.src = 'https://i.ibb.co/PDgnt0S/GPF039-01-29631.png';
     egg1.alt = 'Easter Egg 1';
     egg1.className = 'easter-egg one'; // Classe per la prima immagine
+    
+    const egg3 = document.createElement('p');
+    egg3.innerHTML = "👍 Si, Tranquilla";
+    egg3.alt = 'Easter Egg 3';
+    egg3.className = 'three';
 
     const egg2 = document.createElement('img');
     egg2.src = 'https://i.ibb.co/bFdr8pF/GPF085-01-35929.png';
@@ -65,11 +71,13 @@ function addEasterEggs() {
     // Aggiungi le immagini alla pagina
     document.body.appendChild(egg1);
     document.body.appendChild(egg2);
+    document.body.appendChild(egg3);
 
     // Mostra le immagini come easter egg quando si clicca sulla pagina
     document.body.addEventListener('click', () => {
         egg1.classList.toggle('show'); // Mostra/nascondi la prima immagine
         egg2.classList.toggle('show'); // Mostra/nascondi la seconda immagine
+        egg3.classList.toggle('show'); 
     });
 }
 
